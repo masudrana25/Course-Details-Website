@@ -16,7 +16,7 @@ const Cart = (props) => {
   };
   total = price + tax;
   return (
-    <div>
+    <div style={{border:'2px solid yellow', borderRadius:'15px', padding:'15px',backgroundColor:'gray', color:'white'}}>
       <h1>Cart Details</h1>
             <h4> Total Course : {cart.length}</h4>
       <h4> Course Price : ${price}</h4>

@@ -16,12 +16,12 @@ const Home = () => {
     };
   };
   return (
-    <div>
+    <div >
       <h1 style={{textAlign: 'center', color: 'red'}}> Hungry Online Academy</h1>
       <br /><br />
       <Container>
         <Row>
-          <Col sm={8}>
+          <Col sm={8} style={{border:'2px solid yellow', borderRadius:'15px', padding:'15px', backgroundColor:'gray', color:'white'}}>
               <h1> Our Product Details </h1>
               {
                 courseDetails.map( data => <Product data={data} key={data.id} HandleEnroll={HandleEnroll}></Product>)

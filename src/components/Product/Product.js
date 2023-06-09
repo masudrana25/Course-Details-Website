@@ -6,7 +6,7 @@ const Product = (props) => {
   const HandleEnroll = props.HandleEnroll
   return (
   
-    <div style={{border: '2px solid red', borderRadius:'15px',margin:'10px',padding:'15px'}}>
+    <div style={{ border: '2px solid purple', borderRadius: '15px', margin: '10px', padding: '15px', backgroundColor:'purple'}}>
           <h2>Product No: {id}</h2>
           <h3>Product Title : {title}</h3>
           <h4>Instructor : {instructor}</h4>
