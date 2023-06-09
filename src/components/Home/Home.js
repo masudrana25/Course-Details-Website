@@ -4,12 +4,16 @@ import Product from '../Product/Product.js';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Cart from '../Cart/Cart.js';
 const Home = () => {
-  const [count, setCount] = useState([]);
-  function HandleEnroll (id){
-    console.log('object');
-    // const matchedProduct = courseDetails.map(pd => pd.find(pd.id === id));
-    // console.log(matchedProduct);
+  const [cart, setCart] = useState([]);
+  const HandleEnroll = (id) => {
+    const matchedCourse = courseDetails.find(pd => pd.id === id);
+    const isAvailable = cart?.find( pd => pd.id === matchedCourse.id)
+    if (cart && !isAvailable) {
+      const Course = [...cart, matchedCourse];
+      setCart(Course);
+    };
   };
   return (
     <div>
@@ -20,16 +24,12 @@ const Home = () => {
           <Col sm={8}>
               <h1> Our Product Details </h1>
               {
-                courseDetails.map( data => <Product data={data} HandleEnroll={ ()=>HandleEnroll(data.id)} count={count} setCount={setCount}></Product>)
-              }  
+                courseDetails.map( data => <Product data={data} key={data.id} HandleEnroll={HandleEnroll}></Product>)
+            }  
           </Col>
 
           <Col sm={4}>
-            <h1>Cart Details</h1>
-            <h4> Total Course : {count.length}</h4>
-            <h4> Course Price : $</h4>
-            <h4> Tax : $</h4>
-            <h4>Total Price : $</h4>
+            <Cart cart ={cart}></Cart>
           </Col>
 
         </Row>

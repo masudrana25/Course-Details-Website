@@ -1,12 +1,9 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 const Product = (props) => {
   const { id, title, instructor, price } = props.data;
-  let total = 0;
-  const HandleEnroll = (price) => {
-
-  }
+  const HandleEnroll = props.HandleEnroll
   return (
   
     <div style={{border: '2px solid red', borderRadius:'15px',margin:'10px',padding:'15px'}}>
@@ -14,9 +11,8 @@ const Product = (props) => {
           <h3>Product Title : {title}</h3>
           <h4>Instructor : {instructor}</h4>
           <p>Price : ${price}</p>
-          <Button variant="primary" onClick={()=>HandleEnroll(price)}> Enroll Now</Button>
+          <Button variant="primary" onClick={()=>HandleEnroll(id)}> Enroll Now</Button>
     </div>
-       
 
   );
 };
